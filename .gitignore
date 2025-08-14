@@ -9,3 +9,4 @@ vendor/
 equeselfgo
 *.exe
 *.tar.gz
+*.tar.xz
