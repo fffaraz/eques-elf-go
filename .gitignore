@@ -1,0 +1,11 @@
+.flatpak-builder/
+.idea/
+.vscode/
+fyne_metadata_init.go
+fyne.syso
+fyne-cross/
+tmp-pkg/
+vendor/
+equeselfgo
+*.exe
+*.tar.gz
