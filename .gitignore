@@ -1,6 +1,8 @@
 .flatpak-builder/
 .idea/
 .vscode/
+bin/
+build-*/
 fyne_metadata_init.go
 fyne.syso
 fyne-cross/

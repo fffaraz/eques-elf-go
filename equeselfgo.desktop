@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+
+Name=equeselfgo
+Comment=Eques Elf Smart Plug remote control.
+Categories=Utility;
+Keywords=tools;
+
+Icon=/opt/equeselfgo/Icon
+Exec=/opt/equeselfgo/equeselfgo
+Terminal=false
+StartupNotify=false
