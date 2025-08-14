@@ -14,3 +14,5 @@ The official Eques Elf Smart Plug app and their entire cloud service is gone. Yo
 * <https://apps.apple.com/us/app/eques-elf/id1292283137>
 * <https://github.com/HankJames/Vul-Reports/blob/main/FirmwareLeakage/com.eques.plug/com.eques.plug.md>
 * <https://apkpure.net/eques-elf-smart-plug/com.eques.plug>
+
+![Eques Elf](elf.jpg)
