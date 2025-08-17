@@ -10,7 +10,7 @@ go install github.com/fyne-io/fyne-cross@v1.6.1 # or develop or master
 ~/go/bin/fyne-cross version
 
 # clean up
-rm -rf ./bin ./fyne-cross ./tmp-pkg ./fyne_metadata_init.go ./fyne.syso ./${APPNAME} ./${APPNAME}.app ./${APPNAME}.exe ./*.tar.xz
+rm -rf ./bin ./fyne-cross ./tmp-pkg ./fyne_metadata_init.go ./fyne.syso ./${APPNAME} ./${APPNAME}.app ./${APPNAME}.exe ./*.tar.xz ./*.apk
 
 # linux and freebsd
 for os in linux freebsd; do
@@ -36,6 +36,11 @@ echo "Building windows..."
 ~/go/bin/fyne-cross windows -pull -arch=amd64,arm64
 echo "--------------------------------------------------------------------------------"
 
+# android
+echo "Building android..."
+~/go/bin/fyne-cross android -pull -release
+echo "--------------------------------------------------------------------------------"
+
 # export
 echo "Copying files..."
 mkdir -p ./bin
@@ -46,6 +51,7 @@ mkdir -p ./bin
 [ -f ./fyne-cross/bin/freebsd-arm64/${APPNAME} ] && cp ./fyne-cross/bin/freebsd-arm64/${APPNAME} ./bin/${APPNAME}-freebsd-arm64.bin
 [ -f ./fyne-cross/bin/windows-amd64/${APPNAME}.exe ] && cp ./fyne-cross/bin/windows-amd64/${APPNAME}.exe ./bin/${APPNAME}-windows-amd64.exe
 [ -f ./fyne-cross/bin/windows-arm64/${APPNAME}.exe ] && cp ./fyne-cross/bin/windows-arm64/${APPNAME}.exe ./bin/${APPNAME}-windows-arm64.exe
+[ -f ./fyne-cross/dist/android/${APPNAME}.apk ] && cp ./fyne-cross/dist/android/${APPNAME}.apk ./bin/${APPNAME}-android.apk
 
 cd ./bin
 zip -r ./${APPNAME}.zip ./
