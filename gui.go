@@ -26,9 +26,11 @@ func runGUI() {
 			devices := cmdDiscover()
 			deviceList.Objects = nil
 			if len(devices) == 0 {
-				status.SetText("No devices found")
-				discoverBtn.Enable()
-				deviceList.Refresh()
+				fyne.DoAndWait(func() {
+					deviceList.Refresh()
+					status.SetText("No devices found")
+					discoverBtn.Enable()
+				})
 				return
 			}
 			for _, d := range devices {
@@ -63,14 +65,16 @@ func runGUI() {
 						})
 					}()
 				})
-				row := container.NewHBox(
+				row1 := container.NewHBox(
 					widget.NewLabel(dev.IP),
 					widget.NewLabel(dev.Mac),
+				)
+				row2 := container.NewHBox(
 					statusLbl,
 					onBtn,
 					offBtn,
 				)
-				deviceList.Add(row)
+				deviceList.Add(container.NewVBox(row1, row2))
 			}
 			fyne.DoAndWait(func() {
 				deviceList.Refresh()
