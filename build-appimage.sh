@@ -3,8 +3,8 @@ set -euo pipefail
 
 APPNAME=equeselfgo
 
-[ -f ./go.mod ] || exit 0
-[ -f ./bin/${APPNAME}-linux-amd64.bin ] || exit 0
+[ -f ./go.mod ] || exit 1
+[ -f ./bin/${APPNAME}-linux-amd64.bin ] || exit 1
 
 echo -n "Building appimage..."
 if [ ! -f ~/Downloads/appimagetool-x86_64.AppImage ]; then

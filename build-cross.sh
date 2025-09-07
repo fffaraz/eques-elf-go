@@ -3,7 +3,7 @@ set -euo pipefail
 
 APPNAME=equeselfgo
 
-[ -f ./go.mod ] || exit 0
+[ -f ./go.mod ] || exit 1
 
 # install fyne-cross
 go install github.com/fyne-io/fyne-cross@v1.6.1 # or develop or master
