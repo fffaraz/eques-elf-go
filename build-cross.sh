@@ -10,7 +10,7 @@ go install github.com/fyne-io/fyne-cross@v1.6.1 # or develop or master
 ~/go/bin/fyne-cross version
 
 # clean up
-rm -rf ./bin ./fyne-cross ./tmp-pkg ./fyne_metadata_init.go ./fyne.syso ./${APPNAME} ./${APPNAME}.app ./${APPNAME}.exe ./*.tar.xz ./*.apk
+rm -rf ./bin ./build-appimage ./fyne-cross ./tmp-pkg ./fyne_metadata_init.go ./fyne.syso ./${APPNAME} ./${APPNAME}.app ./${APPNAME}.exe ./*.tar.xz ./*.apk
 
 # linux and freebsd
 for os in linux freebsd; do
