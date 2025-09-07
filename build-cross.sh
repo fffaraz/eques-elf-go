@@ -38,7 +38,7 @@ echo "--------------------------------------------------------------------------
 
 # android
 echo "Building android..."
-~/go/bin/fyne-cross android -pull -release
+~/go/bin/fyne-cross android -pull # -release
 echo "--------------------------------------------------------------------------------"
 
 # export
