@@ -16,10 +16,10 @@ func runGUI() {
 	status := widget.NewLabel("Idle")
 	deviceList := container.NewVBox()
 	scroller := container.NewVScroll(deviceList)
-	scroller.SetMinSize(fyne.NewSize(500, 300))
+	scroller.SetMinSize(fyne.NewSize(400, 400))
 
 	var discoverBtn *widget.Button
-	discoverBtn = widget.NewButton("Discover", func() {
+	discoverBtn = widget.NewButton("     Discover     ", func() {
 		discoverBtn.Disable()
 		status.SetText("Discovering devices...")
 		go func() {
@@ -86,13 +86,14 @@ func runGUI() {
 
 	myWindow.SetContent(
 		container.NewBorder(
-			container.NewHBox(discoverBtn),
+			container.NewCenter(container.NewHBox(discoverBtn, widget.NewLabel(" "))),
 			status,
 			nil,
 			nil,
 			scroller,
 		),
 	)
-	myWindow.Resize(fyne.NewSize(600, 400))
+	myWindow.Resize(fyne.NewSize(500, 600))
+	discoverBtn.OnTapped()
 	myWindow.ShowAndRun()
 }
