@@ -2,7 +2,7 @@ module equeselfgo
 
 go 1.23.5
 
-require fyne.io/fyne/v2 v2.6.2
+require fyne.io/fyne/v2 v2.6.3
 
 require (
 	fyne.io/systray v1.11.0 // indirect
@@ -30,7 +30,7 @@ require (
 	github.com/rymdport/portal v0.4.2 // indirect
 	github.com/srwiley/oksvg v0.0.0-20221011165216-be6e8873101c // indirect
 	github.com/srwiley/rasterx v0.0.0-20220730225603-2ab79fcdd4ef // indirect
-	github.com/stretchr/testify v1.10.0 // indirect
+	github.com/stretchr/testify v1.11.1 // indirect
 	github.com/yuin/goldmark v1.7.13 // indirect
 	golang.org/x/image v0.30.0 // indirect
 	golang.org/x/net v0.43.0 // indirect
