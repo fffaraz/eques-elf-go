@@ -37,7 +37,7 @@ func runGUI() {
 				dev := d // capture
 				statusLbl := widget.NewLabel(dev.Status)
 				var onBtn, offBtn *widget.Button
-				onBtn = widget.NewButton("On", func() {
+				onBtn = widget.NewButton("     On     ", func() {
 					onBtn.Disable()
 					offBtn.Disable()
 					go func() {
@@ -51,7 +51,7 @@ func runGUI() {
 						})
 					}()
 				})
-				offBtn = widget.NewButton("Off", func() {
+				offBtn = widget.NewButton("     Off     ", func() {
 					offBtn.Disable()
 					onBtn.Disable()
 					go func() {

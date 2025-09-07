@@ -26,13 +26,14 @@ func cmdDiscover() []Device {
 	defer conn.Close()
 
 	go func() {
-		for i := 1; i < 3; i++ {
+		for i := 1; i < 2; i++ {
 			command := "lan_phone%mac%nopassword%" + time.Now().Format("2006-01-02-15:04:05") + "%heart"
 			ciphertext, _ := hex.DecodeString(aesEcb256Encrypt(command))
 			conn.WriteTo(ciphertext, &net.UDPAddr{
-				IP:   net.ParseIP("255.255.255.255"),
+				IP:   net.ParseIP("192.168.1.255"), // 255.255.255.255
 				Port: 27431,
 			})
+			fmt.Printf("Sent discovery packet %d\n", i)
 			time.Sleep(500 * time.Millisecond)
 		}
 		conn.Close()
