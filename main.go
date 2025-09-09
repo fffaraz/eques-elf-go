@@ -26,14 +26,15 @@ func cmdDiscover() []Device {
 	defer conn.Close()
 
 	go func() {
-		for i := 1; i < 2; i++ {
+		ips := []string{"255.255.255.255", "192.168.1.255"}
+		for _, ip := range ips {
 			command := "lan_phone%mac%nopassword%" + time.Now().Format("2006-01-02-15:04:05") + "%heart"
 			ciphertext, _ := hex.DecodeString(aesEcb256Encrypt(command))
 			conn.WriteTo(ciphertext, &net.UDPAddr{
-				IP:   net.ParseIP("192.168.1.255"), // 255.255.255.255
+				IP:   net.ParseIP(ip),
 				Port: 27431,
 			})
-			fmt.Printf("Sent discovery packet %d\n", i)
+			fmt.Printf("Sent discovery packet to %s\n", ip)
 			time.Sleep(500 * time.Millisecond)
 		}
 		conn.Close()
@@ -62,8 +63,6 @@ func cmdDiscover() []Device {
 				Status:   status[0],
 			}
 			fmt.Printf("IP: %s | Mac: %s | Password: %s | Status: %s\n", ipv4, fields[1], fields[2], status[0])
-			fmt.Printf("-cmd on -ip %s -mac %s -pass %s\n", ipv4, fields[1], fields[2])
-			fmt.Println()
 		} else {
 			fmt.Printf("Received %d bytes from %s: %s\n", n, addr.String(), decrypted)
 		}
