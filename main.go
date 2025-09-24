@@ -67,12 +67,21 @@ func cmdDiscover() []Device {
 			fmt.Printf("Received %d bytes from %s: %s\n", n, addr.String(), decrypted)
 		}
 	}
+
 	if len(devices) == 0 {
 		return nil
 	}
 	var result []Device
 	for _, device := range devices {
 		result = append(result, device)
+	}
+	// Sort devices by MAC address
+	for i := 0; i < len(result)-1; i++ {
+		for j := i + 1; j < len(result); j++ {
+			if result[i].Mac > result[j].Mac {
+				result[i], result[j] = result[j], result[i]
+			}
+		}
 	}
 	return result
 }
