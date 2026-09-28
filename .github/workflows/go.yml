@@ -22,7 +22,7 @@ jobs:
         go-version: '1.26'
 
     - name: Install dependencies
-      run: sudo apt-get update && sudo apt-get install -yq libwayland-dev libxkbcommon-dev xorg-dev
+      run: sudo apt-get update && sudo apt-get install -yq libegl1-mesa-dev libgles2-mesa-dev libwayland-dev libxkbcommon-dev xorg-dev
 
     - name: Build
       run: go build -v ./...

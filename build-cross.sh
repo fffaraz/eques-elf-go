@@ -6,7 +6,7 @@ APPNAME=equeselfgo
 [ -f ./go.mod ] || exit 1
 
 # install fyne-cross
-go install github.com/fyne-io/fyne-cross@v1.6.1 # or develop or master
+go install github.com/fyne-io/fyne-cross@v1.6.3
 ~/go/bin/fyne-cross version
 
 # clean up
